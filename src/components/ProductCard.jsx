@@ -17,7 +17,10 @@ function ProductCard({ product }) {
         {isInWishlist(product.id) ? "❤️" : "🤍"}
       </button>
 
-      <img src={product.image} alt={product.title} />
+      <img
+        src={product.images?.[0] || product.thumbnail}
+        alt={product.title}
+      />
 
       <div className="product-info">
         <p className="category">{product.category}</p>
@@ -25,7 +28,7 @@ function ProductCard({ product }) {
         <h3>{product.title}</h3>
 
         <div className="rating">
-          ⭐ {product.rating.rate} ({product.rating.count})
+          ⭐ {product.rating}
         </div>
 
         <h2>${product.price}</h2>
